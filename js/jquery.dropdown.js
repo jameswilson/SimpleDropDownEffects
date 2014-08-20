@@ -63,7 +63,7 @@
 
 			this.selectlabel.css('z-index', this.minZIndex + this.optsCount);
 			this._positionOpts();
-			if(Modernizr.csstransitions) {
+			if (Modernizr.csstransitions) {
 				setTimeout(function () {
 					self.opts.css('transition', 'all ' + self.options.speed + 'ms ' + self.options.easing);
 				}, 25);
@@ -79,19 +79,19 @@
 			this.$el.children('option').each(function () {
 
 				var $this = $(this),
-					val = isNaN($this.attr('value')) ? $this.attr('value') : Number($this.attr('value')) ,
+					val = isNaN($this.attr('value')) ? $this.attr('value') : Number($this.attr('value')),
 					classes = $this.attr('class'),
 					selected = $this.attr('selected'),
 					label = $this.text();
 
-				if(val !== -1) {
+				if (val !== -1) {
 					optshtml +=
 						classes !== undefined ?
 							'<li data-value="' + val + '"><span class="' + classes + '">' + label + '</span></li>' :
 							'<li data-value="' + val + '"><span>' + label + '</span></li>';
 				}
 
-				if(selected) {
+				if (selected) {
 					selectlabel = label;
 					value = val;
 				}
@@ -123,7 +123,7 @@
 					});
 				});
 
-			if(!this.options.slidingIn) {
+			if (!this.options.slidingIn) {
 				this.opts
 					.eq(this.optsCount - 1)
 					.css({ top : this.options.stack ? 9 : 0, left : this.options.stack ? 4 : 0, width : this.options.stack ? this.size.width - 8 : this.size.width, transform : 'none' })
@@ -146,7 +146,7 @@
 			});
 
 			this.opts.on('click.dropdown', function () {
-				if(self.opened) {
+				if (self.opened) {
 					var opt = $(this);
 					self.options.onOptionSelect(opt);
 					self.inputEl.val(opt.data('value'));
@@ -186,7 +186,7 @@
 
 			var self = this;
 			this.dd.toggleClass('cd-active');
-			if(this.options.delay && Modernizr.csstransitions) {
+			if (this.options.delay && Modernizr.csstransitions) {
 				this.opts.each(function (i) {
 					$(this).css({ 'transition-delay' : self.options.slidingIn ? ((self.optsCount - 1 - i) * self.options.delay) + 'ms' : (i * self.options.delay) + 'ms' });
 				});
@@ -203,7 +203,7 @@
 		if (typeof options === 'string') {
 			var args = Array.prototype.slice.call(arguments, 1);
 			this.each(function () {
-				instance[ options ].apply(instance, args);
+				instance[options].apply(instance, args);
 			});
 		}
 		else {
