@@ -118,7 +118,7 @@
 						top : self.options.slidingIn ? (i + 1) * (self.size.height + self.options.gutter) : 0,
 						left : 0,
 						marginLeft : self.options.slidingIn ? i % 2 === 0 ? self.options.slidingIn : - self.options.slidingIn : 0,
-						opacity : self.options.slidingIn ? 0 : 1,
+						opacity : self.options.slidingIn || !self.options.stack ? 0 : 1,
 						transform : 'none'
 					});
 				});
