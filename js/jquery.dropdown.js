@@ -48,28 +48,34 @@
 		},
 		_layout : function () {
 
-			var self = this;
+			var	self = this,
+				value = this._transformSelect(),
+				elName = this.$el.attr('name'),
+				elId = this.$el.attr('id'),
+				inputName = elName !== undefined ? elName : elId !== undefined ? elId : 'cd-dropdown-' + (new Date()).getTime();
+
 			this.minZIndex = 1000;
-			var value = this._transformSelect();
 			this.opts = this.listopts.children('li');
 			this.optsCount = this.opts.length;
 			this.size = { width : this.dd.width(), height : this.dd.height() };
-
-			var elName = this.$el.attr('name'), elId = this.$el.attr('id'),
-				inputName = elName !== undefined ? elName : elId !== undefined ? elId : 'cd-dropdown-' + (new Date()).getTime();
 
 			this.inputEl = $('<input type="hidden" name="' + inputName + '" value="' + value + '"></input>').insertAfter(this.selectlabel);
 
 			this.selectlabel.css('z-index', this.minZIndex + this.optsCount);
 			this._positionOpts();
 			if(Modernizr.csstransitions) {
-				setTimeout(function () { self.opts.css('transition', 'all ' + self.options.speed + 'ms ' + self.options.easing); }, 25);
+				setTimeout(function () {
+					self.opts.css('transition', 'all ' + self.options.speed + 'ms ' + self.options.easing);
+				}, 25);
 			}
 
 		},
 		_transformSelect : function () {
 
-			var optshtml = '', selectlabel = '', value = -1;
+			var	optshtml = '',
+				selectlabel = '',
+				value = -1;
+
 			this.$el.children('option').each(function () {
 
 				var $this = $(this),
