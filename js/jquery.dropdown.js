@@ -140,7 +140,7 @@
 
 			var self = this;
 
-			this.selectlabel.on('mousedown.dropdown', function (event) {
+			this.selectlabel.on('mousedown.dropdown', function () {
 				self.opened ? self.close() : self.open(); // jshint ignore:line
 				return false;
 			});
