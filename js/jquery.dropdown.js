@@ -107,7 +107,7 @@
 			return value;
 
 		},
-		_positionOpts : function (anim) {
+		_positionOpts : function () {
 
 			var self = this;
 
@@ -194,7 +194,7 @@
 					$(this).css({ 'transition-delay' : self.options.slidingIn ? ((self.optsCount - 1 - i) * self.options.delay) + 'ms' : (i * self.options.delay) + 'ms' });
 				});
 			}
-			this._positionOpts(true);
+			this._positionOpts();
 			this.opened = false;
 
 		}
