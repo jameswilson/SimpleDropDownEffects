@@ -84,16 +84,17 @@
 					selected = $this.attr('selected'),
 					label = $this.text();
 
+				if (selected) {
+					selectlabel = label;
+					value = val;
+					classes = classes ? classes + ' is-selected' : 'is-selected';
+				}
+
 				if (val !== -1) {
 					optshtml +=
 						classes !== undefined ?
 							'<li data-value="' + val + '"><span class="' + classes + '">' + label + '</span></li>' :
 							'<li data-value="' + val + '"><span>' + label + '</span></li>';
-				}
-
-				if (selected) {
-					selectlabel = label;
-					value = val;
 				}
 
 			});
