@@ -149,8 +149,10 @@
 				if (self.opened) {
 					var opt = $(this);
 					self.options.onOptionSelect(opt);
-					self.inputEl.val(opt.data('value'));
-					self.selectlabel.html(opt.html());
+					if (self.inputEl.val() !== opt.data('value')) {
+						self.inputEl.val(opt.data('value')).trigger('change');
+						self.selectlabel.html(opt.html());
+					}
 					self.close();
 				}
 			});
